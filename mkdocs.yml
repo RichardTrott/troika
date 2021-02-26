@@ -7,13 +7,17 @@ plugins:
   - git-revision-date
 theme:
   name: material
+  custom_dir: docs_theme/
   palette:
-    primary: white
+    scheme: preference
+    primary: black
   features:
     - navigation.sections
     #- toc.integrate
   icon:
     logo: fontawesome/regular/file
+  font: 
+    text: Open Sans
 google_analytics:
   - UA-189971966-1
   - auto
