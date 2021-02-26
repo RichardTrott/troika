@@ -1,4 +1,4 @@
-site_name: Troika JS
+site_name: " "
 site_author: Jason Johnston
 repo_url: https://github.com/protectwise/troika
 plugins:
@@ -9,15 +9,17 @@ theme:
   name: material
   custom_dir: docs_theme/
   palette:
-    scheme: preference
-    primary: black
+    scheme: default
+    primary: white
+    accent: cyan
   features:
     - navigation.sections
     #- toc.integrate
-  icon:
-    logo: fontawesome/regular/file
+  logo: images/troika-brand/SVG/troika-logotype-monochrome.svg
   font: 
     text: Open Sans
+extra_css:
+  - stylesheets/troika-custom.css
 google_analytics:
   - UA-189971966-1
   - auto
