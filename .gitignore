@@ -6,3 +6,5 @@ site
 .tmp
 .DS_store
 lerna-debug.log
+packages/**/package-lock.json
+.vscode
