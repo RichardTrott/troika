@@ -1,3 +1,4 @@
+
 # Change Log
 
 All notable changes to this project will be documented in this file.
@@ -607,3 +608,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Add a set of facades for common primitive meshes, using shared geometries and with setters for builtin material properties. ([d4b309b](https://github.com/protectwise/troika/commit/d4b309b179edba4b59ca87d13100a38be1b374a7))
 * Add memoize function in utils ([16efb01](https://github.com/protectwise/troika/commit/16efb013eb62bb3630b0375ad7a054820aa2382c))
 * **troika-3d:** allow passing a Vector3 instance to getCameraPosition ([f686483](https://github.com/protectwise/troika/commit/f6864835649b00cef4b53d3a9bd5d3d880d57d8d))
+
+
+

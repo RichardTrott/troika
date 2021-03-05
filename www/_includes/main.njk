@@ -1,0 +1,91 @@
+---
+title: Troika
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- https://github.com/joshbuchea/HEAD -->
+
+  <!-- Recommended -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Elements -->
+  <meta charset="utf-8">
+
+  <!-- Meta -->
+  <meta name="description" content="{{ metadata.description }}">
+  <meta name="generator" content="11ty">
+
+  <!-- Icons -->
+  <!-- https://favicon.io/ -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16x16.png' | url }}">
+  <link rel="manifest" href="{{ '/site.webmanifest' | url }}">
+
+
+  <title>{{ title or metadata.title }}</title>
+
+  <link rel="stylesheet" href="https://use.typekit.net/oqd5hlz.css">
+  <link rel="stylesheet" href="{{ '/main.css' | url }}">
+</head>
+
+<body class="container box-border grid grid-cols-3 gap-10 font-sans leading-normal tracking-normal text-gray-900">
+  
+  <header class="sticky bg-gray-200">
+    <img src="{{ '/images/city-thumbnail.png' | url }}" alt="LOGO" />
+    <h1>
+      <a href="{{ '/' | url }}" />Troika HOME</a>
+    </h1>
+    <nav>
+      {% set navPages = collections.fullSortedNav | eleventyNavigation %}
+      {% macro renderNavListItem(entry) -%}
+      <li{% if entry.url == page.url %} class="my-active-class"{% endif %}>
+        <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+      {%- if entry.children.length -%}
+        <ul class="ml-8">
+          {%- for child in entry.children %}{{ renderNavListItem(child) }}{% endfor -%}
+        </ul>
+      {%- endif -%}
+      </li>
+      {%- endmacro %}
+
+      <ul>
+      {%- for entry in navPages %}{{ renderNavListItem(entry) }}{%- endfor -%}
+      </ul>
+
+    </nav>
+  </header>
+  <main>
+    {{ content | safe }}
+  </main>
+  <footer>Troika</footer>
+</body>
+</html>
+{# 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{title}}</title>
+
+    <link rel="stylesheet" href="{{ '/main.css' | url }}">
+  </head>
+  <body class="box-border min-h-screen font-sans leading-normal tracking-normal text-gray-900 bg-gray-100">
+    <header class="sticky">
+      <div clsss="text-3xl font-extrabold text-gray-900 tracking-tight mb-8">Troika</div>
+      
+    </header>
+    <main class="container flex flex-col flex-wrap items-center px-6 pt-24 mx-auto md:pt-48 md:flex-row">
+      <header class="flex flex-col justify-center w-full overflow-y-hidden xl:w-2/5 lg:items-start">
+        <h1 class="my-4 text-3xl font-bold leading-tight text-center text-blue-500 md:text-5xl md:text-left">{{ metadata.title }}</h1>
+        <p class="mb-8 text-base leading-normal text-center md:text-2xl md:text-left">{{ metadata.description }}</p>    
+      </header>
+    {{ content | safe }}
+    </main>
+  </body>
+</html> #}

@@ -5,3 +5,4 @@ coverage
 .DS_store
 .vscode
 lerna-debug.log
+_www_dist
