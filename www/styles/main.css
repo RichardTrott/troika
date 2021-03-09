@@ -6,6 +6,123 @@ div {
   color: red;
 }
 
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
+/* fancy-pants sorta-parallax "grid ceiling" bg for landing page */
+.fancy_bg {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: black;
+}
+
+.fancy_bg::after, 
+.fancy_bg::before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.fancy_bg::after {
+  z-index: 30;
+  opacity: 0.33;
+  background: transparent linear-gradient(90deg, cyan, magenta);
+  mix-blend-mode: screen;
+}
+
+.fancy_bg::before {
+  z-index: 31;
+  background: transparent linear-gradient(0deg, white 20%, rgba(255, 255, 255, 0) 100%);
+}
+
+.bg_panel {
+  position: absolute;
+  /* width: 75%; */
+  left: 0;
+  right: 0;
+  opacity: 0.33;
+  mix-blend-mode: screen;
+  height: 1000px;
+  z-index: 1
+} 
+
+.bg_panel_l {
+  left: 0;
+  background: transparent linear-gradient(90deg, cyan, white);
+  transform-origin: top right;
+}
+
+.bg_panel_r {
+  right: 0;
+  background: transparent linear-gradient(-90deg, magenta, white);
+  transform-origin: top left;
+} 
+
+.bg_panel_1 {
+  top: 100px;
+  transform: translateY(calc(var(--scroll-factor-px) / 2)) skewY(calc(-10deg + (var(--scroll-factor) / -55)));
+} 
+
+.bg_panel_2 {
+  top: 230px;
+  transform: translateY(calc(var(--scroll-factor-px) / 3)) skewY(calc(-10deg + (var(--scroll-factor) / -50)));
+} 
+
+.bg_panel_3 {
+  top: 310px;
+  transform: translateY(calc(var(--scroll-factor-px) / 5)) skewY(calc(-10deg + (var(--scroll-factor) / -45)));
+} 
+
+.bg_panel_4 {
+  top: 360px;
+  transform: translateY(calc(var(--scroll-factor-px) / 8)) skewY(calc(-10deg + (var(--scroll-factor) / -40)));
+} 
+
+.bg_panel_5 {
+  top: 390px;
+  transform: translateY(calc(var(--scroll-factor-px) / 13)) skewY(calc(-10deg + (var(--scroll-factor) / -35)));
+} 
+
+.bg_panel_6 {
+  top: 410px;
+  transform: translateY(calc(var(--scroll-factor-px) / 21)) skewY(calc(-10deg + (var(--scroll-factor) / -30)));
+} 
+
+
+.bg_panel_1.bg_panel_r {
+  transform: translateY(calc(var(--scroll-factor-px) / 2)) skewY(calc(10deg + (var(--scroll-factor) / 55)));
+} 
+
+.bg_panel_2.bg_panel_r {
+  transform: translateY(calc(var(--scroll-factor-px) / 3)) skewY(calc(10deg + (var(--scroll-factor) / 50)));
+} 
+
+.bg_panel_3.bg_panel_r {
+  transform: translateY(calc(var(--scroll-factor-px) / 5)) skewY(calc(10deg + (var(--scroll-factor) / 45)));
+} 
+
+.bg_panel_4.bg_panel_r {
+  transform: translateY(calc(var(--scroll-factor-px) / 8)) skewY(calc(10deg + (var(--scroll-factor) / 40)));
+} 
+
+.bg_panel_5.bg_panel_r {
+  transform: translateY(calc(var(--scroll-factor-px) / 13)) skewY(calc(10deg + (var(--scroll-factor) / 35)));
+} 
+
+.bg_panel_6.bg_panel_r {
+  transform: translateY(calc(var(--scroll-factor-px) / 21)) skewY(calc(10deg + (var(--scroll-factor) / 30)));
+} 
+
+/* Logo SVG effects */
+
+.logo_wrap path, 
+.logo_wrap polygon {
+  fill: white;
+  /* mix-blend-mode: overlay; */
+  /* fill-opacity: 0.2; */
+}

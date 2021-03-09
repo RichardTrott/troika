@@ -20,48 +20,46 @@ title: Troika
 
   <!-- Icons -->
   <!-- https://favicon.io/ -->
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | url }}">
+  {# <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | url }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | url }}">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16x16.png' | url }}">
-  <link rel="manifest" href="{{ '/site.webmanifest' | url }}">
+  <link rel="manifest" href="{{ '/site.webmanifest' | url }}"> #}
 
 
   <title>{{ title or metadata.title }}</title>
 
   <link rel="stylesheet" href="https://use.typekit.net/oqd5hlz.css">
   <link rel="stylesheet" href="{{ '/main.css' | url }}">
+
+  <script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
 </head>
 
-<body class="container box-border grid grid-cols-3 gap-10 font-sans leading-normal tracking-normal text-gray-900">
-  
-  <header class="sticky bg-gray-200">
-    <img src="{{ '/images/city-thumbnail.png' | url }}" alt="LOGO" />
-    <h1>
-      <a href="{{ '/' | url }}" />Troika HOME</a>
-    </h1>
-    <nav>
-      {% set navPages = collections.fullSortedNav | eleventyNavigation %}
-      {% macro renderNavListItem(entry) -%}
-      <li{% if entry.url == page.url %} class="my-active-class"{% endif %}>
-        <a href="{{ entry.url | url }}">{{ entry.title }}</a>
-      {%- if entry.children.length -%}
-        <ul class="ml-8">
-          {%- for child in entry.children %}{{ renderNavListItem(child) }}{% endfor -%}
-        </ul>
-      {%- endif -%}
-      </li>
-      {%- endmacro %}
-
-      <ul>
-      {%- for entry in navPages %}{{ renderNavListItem(entry) }}{%- endfor -%}
-      </ul>
-
-    </nav>
-  </header>
-  <main>
+<body 
+  class="container box-border flex flex-col gap-10 mx-auto font-sans leading-normal tracking-normal text-gray-900"
+  x-data="{ scrollPct: 0 }"
+  x-on:scroll.window="scrollPct = window.scrollY / (document.body.clientHeight - window.innerHeight) * 100"
+>
+  {% include "partials/header.njk" %}
+  <main class="flex-1">
     {{ content | safe }}
   </main>
   <footer>Troika</footer>
+  <div class="fancy_bg" x-bind:style="`--scroll-factor: ${100 - scrollPct * 2}deg; --scroll-factor-px: ${100 - scrollPct * 2}px;`">
+    <div class="bg_panel bg_panel_l bg_panel_1"></div>
+    <div class="bg_panel bg_panel_l bg_panel_2"></div>
+    <div class="bg_panel bg_panel_l bg_panel_3"></div>
+    <div class="bg_panel bg_panel_l bg_panel_4"></div>
+    <div class="bg_panel bg_panel_l bg_panel_5"></div>
+    <div class="bg_panel bg_panel_l bg_panel_6"></div>
+
+    <div class="bg_panel bg_panel_r bg_panel_1"></div>
+    <div class="bg_panel bg_panel_r bg_panel_2"></div>
+    <div class="bg_panel bg_panel_r bg_panel_3"></div>
+    <div class="bg_panel bg_panel_r bg_panel_4"></div>
+    <div class="bg_panel bg_panel_r bg_panel_5"></div>
+    <div class="bg_panel bg_panel_r bg_panel_6"></div>
+  </div>
 </body>
 </html>
 {# 

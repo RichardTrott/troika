@@ -1,0 +1,27 @@
+
+<header class="sticky top-0 left-0 right-0 flex flex-row items-center justify-between">
+  <div class="w-64 logo_wrap">
+    {% include "./Troika-logo-mono-01.svg" %}
+  </div>
+  {# <img 
+    src="{{ '/images/brand/Troika-logo-mono-01.svg' | url }}" 
+    alt="LOGO"
+  /> #}
+  <div class="flex-1">
+    {% block headerText %}
+    Default Header Title
+    {% endblock %}
+  </div>
+  <nav class="space-x-4 flex-4">
+    {% set navPages = collections.fullSortedNav | eleventyNavigation %}
+    <ul class="flex flex-row items-center justify-between">
+      {%- for entry in navPages %}
+      {% set classes = '' %}
+
+      <li class="flex-initial p-4">
+        <a {% if entry.url == page.url %} class="text-yellow-500" {% else %}class="text-red-500"{% endif %} href="{{ entry.url | url }}" >{{ entry.title }}</a>
+      </li>
+      {%- endfor -%}
+    </ul>
+  </nav>
+</header>

@@ -14,7 +14,7 @@ module.exports = function(eleventyConfig) {
     return collectionApi.getAll().sort((a, b) => a.data.sort - b.data.sort)
   })
 
-  eleventyConfig.addPassthroughCopy("www/**/*.(jpg|png|webp)")
+  eleventyConfig.addPassthroughCopy("www/**/*.(jpg|png|webp|svg)")
 
   return {
     dir: {
@@ -24,7 +24,7 @@ module.exports = function(eleventyConfig) {
       output: '_www_dist',
       input: 'www'
     },
-    templateFormats: ["md", "liquid", "njk"],
+    templateFormats: ["md", "liquid", "njk", "svg"],
     pathPrefix: "/v1/",
     // markdownTemplateEngine: 'njk' // Barfs on something, just use liquid default
   }
