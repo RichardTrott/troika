@@ -1,6 +1,7 @@
 ---
 title: 3D User Interfaces
 parent: Troika 3D
+order: 9
 ---
 
 The `troika-3d-ui` package allows creating flexbox user interfaces in 3D scenes. It behaves largely like [CSS flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout), but renders in WebGL so it can make use of Three.js materials, can include fully 3D objects within its layout, and remains functional in WebXR.

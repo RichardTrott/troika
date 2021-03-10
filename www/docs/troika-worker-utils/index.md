@@ -1,7 +1,7 @@
 ---
 id: troika-worker-utils
 title: Troika Worker Utils
-parent: Other Tools
+parent: Utilities
 ---
 
 {% include "../../packages/troika-worker-utils/README.md" %}

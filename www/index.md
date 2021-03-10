@@ -2,7 +2,7 @@
 title: Home
 layout: home
 parent: ""
-sort: 0
+order: 0
 # eleventyExcludeFromCollections: true
 ---
 

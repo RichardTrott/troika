@@ -1,8 +1,8 @@
 ---
 title: Overview
-layout: main
+layout: docs
 parent: ""
-sort: 1
+order: 1
 ---
 
 Troika is a collection of JavaScript tools for creating interactive graphics in the browser, with a focus on 3D/WebGL, and optimized for data visualization use cases.

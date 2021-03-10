@@ -2,8 +2,15 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-div {
-  color: red;
+@layer components {
+
+.container_main {
+  --cyan: #00FFFF;
+  --magenta: #FF00FF;
+  --cyan-dark: #005454;
+  --mid-blue-dark: #2A2C55;
+  --magenta-dark: #540455;
+  min-height: 100vh; /* sticky footer */
 }
 
 /* fancy-pants sorta-parallax "grid ceiling" bg for landing page */
@@ -37,7 +44,11 @@ div {
 
 .fancy_bg::before {
   z-index: 31;
-  background: transparent linear-gradient(0deg, white 20%, rgba(255, 255, 255, 0) 100%);
+  background: transparent linear-gradient(0deg, white 0%, rgba(255, 255, 255, 0) 5%);
+}
+
+.fancy_bg.fancy_bg_light {
+  background: #fff
 }
 
 .bg_panel {
@@ -118,11 +129,57 @@ div {
   transform: translateY(calc(var(--scroll-factor-px) / 21)) skewY(calc(10deg + (var(--scroll-factor) / 30)));
 } 
 
-/* Logo SVG effects */
+.logo_svg {
+  margin-left: -15px;
+}
 
-.logo_wrap path, 
-.logo_wrap polygon {
-  fill: white;
-  /* mix-blend-mode: overlay; */
-  /* fill-opacity: 0.2; */
+@keyframes activeColorCycle {
+  0% {
+    border-color: var(--magenta);
+    color: var(--magenta);
+  }
+  25% {
+    border-color: var(--mid-blue);
+    color: var(--mid-blue);
+  }
+  75% {
+    border-color: var(--mid-blue);
+    color: var(--mid-blue);
+  }
+  100% {
+    border-color: var(--cyan);
+    color: var(--cyan);
+  }
+}
+
+a.current_nav {
+  color: white;
+  border-radius: 20px;
+  /* border-color: red; */
+  /* animation: activeColorCycle 2000ms linear infinite alternate; */
+  background: transparent linear-gradient(90deg, var(--cyan), var(--magenta));
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: 500;
+}
+
+/* .current_nav::before {
+  display: inline-block;
+  content: "•";
+} */
+
+.current_nav::after {
+  content: "";
+  display: block;
+  background: transparent linear-gradient(90deg, cyan, magenta);
+  transform: skewY(0.1deg);
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 2px;
+  position: absolute;
+}
+
+
 }

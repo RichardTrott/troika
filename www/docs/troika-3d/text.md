@@ -1,6 +1,7 @@
 ---
 id: 3d-text
 title: 3D Text
+order: 8
 ---
 
 The `troika-3d-text` package provides a `Text3DFacade` for high quality text rendering in Troika 3D scenes, using signed distance fields (SDF) and antialiasing using standard derivatives.

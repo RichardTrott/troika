@@ -1,6 +1,7 @@
 ---
 id: interactivity-and-events
 title: Interactivity and Events in 3D
+order: 4
 ---
 
 Objects in 3D scenes inherit all the useful event handling features from Troika Core's event system. See the core [Interactivity and Events](../troika-core/interactivity-and-events.md) documentation for what it can do.

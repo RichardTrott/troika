@@ -1,8 +1,8 @@
 ---
 title: Docs
-layout: main
+layout: docs
 parent: ""
-sort: 3
+order: 3
 ---
 
 # Docs

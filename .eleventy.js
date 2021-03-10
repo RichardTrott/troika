@@ -10,9 +10,9 @@ module.exports = function(eleventyConfig) {
     root: ["."] // Needed to allow liquid relative `include`s to reach up to the project root
   })
 
-  eleventyConfig.addCollection("fullSortedNav", collectionApi => {
-    return collectionApi.getAll().sort((a, b) => a.data.sort - b.data.sort)
-  })
+  // eleventyConfig.addCollection("fullSortedNav", collectionApi => {
+  //   return collectionApi.getAll().sort((a, b) => (a.data.sort || a.data.title) - (b.data.sort || b.data.title))
+  // })
 
   eleventyConfig.addPassthroughCopy("www/**/*.(jpg|png|webp|svg)")
 

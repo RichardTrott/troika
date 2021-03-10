@@ -1,6 +1,6 @@
 ---
-title: Other Tools
-sort: 3
+title: Utilities
+order: 3
 ---
 
-# Other Tools
+# Utilities

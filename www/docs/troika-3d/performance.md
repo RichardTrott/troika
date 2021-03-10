@@ -1,6 +1,7 @@
 ---
 id: 3d-auto-optimizations
 title: Performance Optimization
+order: 5
 ---
 
 Compared to raw Three.js, Troika automatically performs several optimizations to reduce the CPU time spent on each render frame. Here are the most impactful:

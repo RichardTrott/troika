@@ -1,0 +1,47 @@
+---
+layout: main
+---
+
+{% macro renderNavListItem(entry, depth) -%}
+  {% set isTop = depth == 0 %}
+  {% set isCategory = depth == 1 %}
+  {% set isPage = depth > 1 %}
+  {% set isCurrent = entry.url == page.url %}
+
+  <li class="{% if isCurrent %}  {% endif %} {% if isTop %} mb-10 {% elif isCategory %} mb-1 {% endif %}">
+    <a 
+      href="{{ entry.url | url }}" 
+      class="font-sans block px-2 py-1 relative border-2 border-transparent {% if isTop %}uppercase text-xl mb-5 {% elif isCategory %} text-md {% else %} text-sm {% endif %} {% if isCurrent %} current_nav {% endif %}"
+    >{{ entry.title }}</a>
+    {%- if entry.children.length -%}
+      <ul class="{% if isCategory %}border-l border-gray-300 pl-2 mt-2{% endif %} ">
+        {%- for child in entry.children %}
+          {{ renderNavListItem(child, depth + 1) }}
+        {% endfor -%}
+      </ul>
+    {%- endif -%}
+  </li>
+{%- endmacro %}
+
+
+<div class="flex flex-row items-stretch text-gray-500">
+  {# <div class="">
+      {% include './partials/full-nav.njk' %}
+    </div> #}
+  <div class="fixed inset-0 z-40 flex-none hidden w-full h-full bg-black bg-opacity-25 lg:bg-white lg:static lg:h-auto lg:overflow-y-visible lg:pt-0 lg:w-60 xl:w-72 lg:block">
+    <div class="h-full mr-24 overflow-hidden overflow-y-auto scrolling-touch bg-white lg:h-auto lg:block lg:relative lg:sticky lg:bg-transparent lg:top-18 lg:mr-0">
+      <nav class="fixed inset-0 z-40 flex-none hidden w-full h-full bg-black bg-opacity-25 lg:bg-white lg:static lg:h-auto lg:overflow-y-visible lg:pt-0 lg:w-60 xl:w-72 lg:block">
+        {% set navPages = collections.all | eleventyNavigation("Docs") %}
+
+        <ul>
+          {%- for entry in navPages %}{{ renderNavListItem(entry, 0) }}
+          {%- endfor -%}
+        </ul>
+
+      </nav>
+    </div>
+  </div>
+  <div class="flex-1 px-5 font-serif font-light">
+    {{ content | safe }}
+  </div>
+</div>

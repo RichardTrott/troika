@@ -2,6 +2,7 @@
 id: index
 title: Troika 3D
 parent: Troika Framework
+order: 3
 ---
 
 The `troika-3d` package provides the ability to create interactive 3D scenes with Troika's declarative framework. It uses [Three.js](https://threejs.org) as its underlying WebGL renderer, giving you access to Three's full set of tools and its excellent community.

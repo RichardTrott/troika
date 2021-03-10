@@ -2,7 +2,7 @@
 id: examples
 title: Examples
 parent: ""
-sort: 2
+order: 2
 ---
 
 # EXAMPLES

@@ -1,7 +1,7 @@
 ---
 title: Change Log
 layout: changelog
-sort: 4
+order: 4
 ---
 
 # Change Log

@@ -2,7 +2,7 @@
 title: Troika
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="antialiased text-gray-500 bg-white">
 <head>
 
   <!-- https://github.com/joshbuchea/HEAD -->
@@ -25,43 +25,57 @@ title: Troika
   <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16x16.png' | url }}">
   <link rel="manifest" href="{{ '/site.webmanifest' | url }}"> #}
 
-
   <title>{{ title or metadata.title }}</title>
 
   <link rel="stylesheet" href="https://use.typekit.net/oqd5hlz.css">
   <link rel="stylesheet" href="{{ '/main.css' | url }}">
+  {% block styles %}
+  {% endblock %}
 
   <script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
   <script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
 </head>
 
 <body 
-  class="container box-border flex flex-col gap-10 mx-auto font-sans leading-normal tracking-normal text-gray-900"
+  class="box-border font-sans leading-normal tracking-normal text-gray-900 page-{% if page.url != '/' %}{{page.url | slug}}{% else %}home{% endif %}"
   x-data="{ scrollPct: 0 }"
   x-on:scroll.window="scrollPct = window.scrollY / (document.body.clientHeight - window.innerHeight) * 100"
->
+>  
   {% include "partials/header.njk" %}
-  <main class="flex-1">
-    {{ content | safe }}
-  </main>
-  <footer>Troika</footer>
-  <div class="fancy_bg" x-bind:style="`--scroll-factor: ${100 - scrollPct * 2}deg; --scroll-factor-px: ${100 - scrollPct * 2}px;`">
-    <div class="bg_panel bg_panel_l bg_panel_1"></div>
-    <div class="bg_panel bg_panel_l bg_panel_2"></div>
-    <div class="bg_panel bg_panel_l bg_panel_3"></div>
-    <div class="bg_panel bg_panel_l bg_panel_4"></div>
-    <div class="bg_panel bg_panel_l bg_panel_5"></div>
-    <div class="bg_panel bg_panel_l bg_panel_6"></div>
-
-    <div class="bg_panel bg_panel_r bg_panel_1"></div>
-    <div class="bg_panel bg_panel_r bg_panel_2"></div>
-    <div class="bg_panel bg_panel_r bg_panel_3"></div>
-    <div class="bg_panel bg_panel_r bg_panel_4"></div>
-    <div class="bg_panel bg_panel_r bg_panel_5"></div>
-    <div class="bg_panel bg_panel_r bg_panel_6"></div>
+  <div class="flex flex-col items-stretch container_main">
+    <main class="container flex-1 py-10 mx-auto">
+      {{ content | safe }}
+    </main>
+    <footer class="bg-gray-900">
+      <div class="container py-10 mx-auto text-gray-100">
+        Troika
+      </div>
+    </footer>
   </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {# 
 <!doctype html>
 <html lang="en">

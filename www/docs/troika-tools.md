@@ -1,6 +1,6 @@
 ---
-title: Troika Tools
-sort: 2
+title: THREE.js Tools
+order: 2
 ---
 
-# Troika Tools for THREE.js
+# THREE.js Tools

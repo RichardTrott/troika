@@ -2,4 +2,33 @@
 layout: main
 ---
 
-<div>Homepage</div>
+{% block styles %}
+<style type="text/css">
+.logo_wrap path, 
+.logo_wrap polygon {
+  fill: #fff;
+}
+</style>
+{% endblock %}
+
+<div class="">
+  <h1 class="mx-10 font-serif leading-tight tracking-tight text-center text-gray-100 text-7xl font-extralight ">Declarative high performance web graphics for all dimensions.</h1>
+  <div class="fancy_bg" x-bind:style="`--scroll-factor: ${100 - scrollPct * 2}deg; --scroll-factor-px: ${100 - scrollPct * 2}px;`">
+    <div class="bg_panel bg_panel_l bg_panel_1"></div>
+    <div class="bg_panel bg_panel_l bg_panel_2"></div>
+    <div class="bg_panel bg_panel_l bg_panel_3"></div>
+    <div class="bg_panel bg_panel_l bg_panel_4"></div>
+    <div class="bg_panel bg_panel_l bg_panel_5"></div>
+    <div class="bg_panel bg_panel_l bg_panel_6"></div>
+
+    <div class="bg_panel bg_panel_r bg_panel_1"></div>
+    <div class="bg_panel bg_panel_r bg_panel_2"></div>
+    <div class="bg_panel bg_panel_r bg_panel_3"></div>
+    <div class="bg_panel bg_panel_r bg_panel_4"></div>
+    <div class="bg_panel bg_panel_r bg_panel_5"></div>
+    <div class="bg_panel bg_panel_r bg_panel_6"></div>
+  </div>
+  <div class="">
+    
+  </div>
+</div>

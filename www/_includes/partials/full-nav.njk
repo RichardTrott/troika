@@ -1,5 +1,5 @@
   <nav>
-    {% set navPages = collections.fullSortedNav | eleventyNavigation %}
+    {% set navPages = collections.all | eleventyNavigation %}
     {% macro renderNavListItem(entry) -%}
     <li{% if entry.url == page.url %} class="my-active-class"{% endif %}>
       <a href="{{ entry.url | url }}">{{ entry.title }}</a>

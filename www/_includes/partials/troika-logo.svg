@@ -5,6 +5,10 @@
         isolation: isolate;
       }
     </style>
+    <linearGradient id="logoGrad">
+      <stop offset="0%" stop-color="#00ffff" />
+      <stop offset="100%" stop-color="#ff00ff" />
+    </linearGradient>
   </defs>
   <g class="cls-1">
     <g id="Layer_1" data-name="Layer 1">

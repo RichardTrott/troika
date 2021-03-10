@@ -1,6 +1,7 @@
 ---
 id: 3d-objects
 title: Adding 3D Objects
+order: 3
 ---
 
 So you've got a [3D scene](./scenes.md) with a camera and now you want to add some 3D objects to it, naturally!

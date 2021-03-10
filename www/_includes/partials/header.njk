@@ -1,27 +1,38 @@
+{% block styles %}
+  <style type="text/css">
+    .logo_svg path,
+    .logo_svg polygon {
+      fill: #fff;
+    }
+  </style>
+{% endblock %}
 
-<header class="sticky top-0 left-0 right-0 flex flex-row items-center justify-between">
-  <div class="w-64 logo_wrap">
-    {% include "./Troika-logo-mono-01.svg" %}
-  </div>
-  {# <img 
-    src="{{ '/images/brand/Troika-logo-mono-01.svg' | url }}" 
-    alt="LOGO"
-  /> #}
-  <div class="flex-1">
-    {% block headerText %}
-    Default Header Title
-    {% endblock %}
-  </div>
-  <nav class="space-x-4 flex-4">
-    {% set navPages = collections.fullSortedNav | eleventyNavigation %}
-    <ul class="flex flex-row items-center justify-between">
-      {%- for entry in navPages %}
-      {% set classes = '' %}
+<header class="sticky top-0 z-40 bg-gradient-to-r from-cyan-dark to-magenta-dark lg:z-50">
+  <div class="container flex flex-none w-full mx-auto text-white">
+    <div class="flex items-center flex-none pl-4 sm:pl-6 xl:pl-8 lg:border-b-0 lg:w-60 xl:w-72">
+      <a class="w-10 overflow-hidden md:w-auto">
+        <span class="sr-only">Troika home page</span>
+        {% include "./troika-logo-lockup.svg" %}
+      </a>
+    </div>
+    <div class="flex items-center justify-between flex-auto px-4 h-18 sm:px-6 lg:mx-6 lg:px-0 xl:mx-8">
+      <div class="flex items-center w-full py-2 space-x-3 font-medium leading-6 transition-colors duration-200 group sm:space-x-4 hover:text-gray-600">
+        {% block headerText %}
+          Default Header Title
+        {% endblock %}
+      </div>
+      <nav class="flex items-center justify-end flex-shrink-0 pl-8 space-x-6 lg:w-64">
+        {% set navPages = collections.all | eleventyNavigation %}
+        <ul class="flex flex-row items-center justify-between">
+          {%- for entry in navPages %}
+            {% set classes = '' %}
 
-      <li class="flex-initial p-4">
-        <a {% if entry.url == page.url %} class="text-yellow-500" {% else %}class="text-red-500"{% endif %} href="{{ entry.url | url }}" >{{ entry.title }}</a>
-      </li>
-      {%- endfor -%}
-    </ul>
-  </nav>
+            <li class="flex-initial p-4">
+              <a {% if entry.url == page.url %} class="text-red-500" {% else %} {% endif %} href="{{ entry.url | url }}">{{ entry.title }}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    </div>
+  </div>
 </header>

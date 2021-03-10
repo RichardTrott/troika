@@ -1,6 +1,6 @@
 ---
 title: Troika Framework
-sort: 1
+order: 1
 ---
 
 # Troika Framework

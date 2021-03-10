@@ -1,6 +1,7 @@
 ---
 id: setup
-title: Setup
+title: Getting Started
+order: 1
 ---
 
 ## Installation

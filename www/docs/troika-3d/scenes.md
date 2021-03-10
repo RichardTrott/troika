@@ -1,6 +1,7 @@
 ---
 id: 3d-scenes
 title: Creating a 3D Scene
+order: 2
 ---
 
 So you want to create a 3D scene! Let's go.

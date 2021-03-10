@@ -1,6 +1,7 @@
 ---
 title: WebXR
 parent: Troika 3D
+order: 10
 ---
 
 The `troika-xr` package adds WebXR capabilities to `troika-3d` scenes. These capabilities include:
